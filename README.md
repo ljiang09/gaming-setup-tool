@@ -1,15 +1,15 @@
 # Gaming Setup Tool
 The gaming setup tool is a website where users can provide a setup inspiration image and they will be directed to the corresponding items to purchase. 
 
-Current version: 1.0
+Current version: 1.1
 
 ## Libraries
-`to be added`
+- [React](https://react.dev)
+- [Material UI](https://mui.com)
 
 ## Features
 ### Current
-Version 1.0
-- Website exists
+- Bare bones website
 ### Upcoming
 - Keyboard & mouse identification
 - Room color palette identification
@@ -22,3 +22,7 @@ In the project directory, you can run:
 
 `npm start` - Runs the app in development mode. \
 Open [http://localhost:3000](http://localhost:3000) to view it in a browser; the page will reload on changes.
+
+**Installation Prerequisites** \
+`sudo apt install npm` \
+`sudo npm -g install create-react-app`
