@@ -16,7 +16,7 @@ such:
     - styles.js
 ```
 
-By putting the component in `index.jsx`, you can import it with shorter syntax:
+By putting the component in `index.jsx`, it can be imported with shorter syntax:
 
 `import MyComponent from './MyComponent';`
 
@@ -27,16 +27,17 @@ instead of
 Components should be created in `.jsx` files. Other files, specific for logic
 and styles and such, should be in a `.js` file.
 
-Also note that we use PascalCase to name components. However, when creating a
-reference to the component, the variable should be named in camelCase so it is
-clear what is what. As an example:
+Also note that PascalCase is used to name components. However, when creating a
+reference to the component, the variable should be in camelCase so it the
+distinction is clear. As an example:
 
 `const myComponent = MyComponent`
 
 ## Linting:
 
 Most style issues can be handled with the proper linting extensions in VS Code.
-For this project, we are using
+
+For this project, the 2 extensions used are
 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 and
 [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
@@ -69,8 +70,8 @@ class Car extends React.Component {
 }
 ```
 
-For simplicity's sake, we use arrow functions for all components instead of
-normal functions.
+For simplicity's sake, arrow functions should be used for all components instead
+of normal functions.
 
 Example of arrow function (good):
 
@@ -106,7 +107,7 @@ const myComponentProps = {
 <MyComponent {...myComponentProps}>
 ```
 
-Props should be in camelCase.
+Prop names should be in camelCase.
 
 If possible, keep the component in one line. If it overflows, the params should
 be in a different line as such:
@@ -131,19 +132,18 @@ If there are a lot of imports in a component, split them into 3 sections:
 
 The sections should have 1 line of whitespace between them for better clarity.
 
-If you have a singular component that stands by itself, export it directly as
+If there is a singular component that stands by itself, export it directly as
 such:
 
 `export default MyComponent;`
 
-So you can import it without braces:
+So it can be imported without braces:
 
 `import MyComponent from "MyComponent/index.jsx"`
 
-If you're compiling a library or group of components that fall within the same
-directory, export each one within its file, but create an overarching `index.js`
-where you import all of the components, and then export them in a group within
-braces.
+If a library or group of components fall within the same directory, export each
+one within its file, but then create an overarching `index.js` to export them as
+a group within braces.
 
 ```
 import ComponentOne from "./ComponentOne/index.jsx";
@@ -157,12 +157,12 @@ export {
 };
 ```
 
-This way, when you go to import one of the components, it's intuitively
-formatted as if it were part of a library.
+This way, when importing one of the components, it's intuitively formatted as if
+it were part of a library.
 
 `import { ComponentTwo } from "MyComponents"`
 
-Functions should always be exported and imported within braces {}
+Functions should always be exported and imported within braces.
 
 `import { useStyles } from "./styles.js`
 
