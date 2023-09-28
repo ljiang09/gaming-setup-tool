@@ -45,7 +45,7 @@ Some key points:
 
 - double quotes instead of single quotes
 - child components should be indented
-- uh
+- max 80 chars per line
 
 ## React Guidelines
 
