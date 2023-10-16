@@ -11,7 +11,26 @@ https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings,
 surrounded by three quotes and occurring inside the file/function/class but
 before any corresponding code.
 
-Example:
+The docstring should contain a one-line summary of the code chunk it's
+documenting. If necessary, it can also contain a more detailed description in a
+paragraph below the summary.
+
+For a function, the docstring should contain:
+
+- Argument names, types, and descriptions. If there are no arguments, this can
+  be omitted
+- Return type and description. If there is no return value, this can be omitted
+
+For a class, the docstring should contain:
+
+- Class attribute names, types, and descriptions. If there are no attributes,
+  this can be omitted
+
+For a file, the docstring should contain:
+
+- Global constants defined in the file
+
+Example of a function docstring:
 
 ```
 def my_function(arg_1, arg_2, arg_3):
@@ -27,6 +46,17 @@ def my_function(arg_1, arg_2, arg_3):
 
   Returns:
     A string containing the user's name and age.
+  """
+```
+
+Example of a function docstring with no arguments or return value:
+
+```
+def my_function():
+  """
+  One-line summary of function.
+
+  More detailed description of function.
   """
 ```
 
