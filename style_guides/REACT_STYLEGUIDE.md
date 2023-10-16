@@ -33,6 +33,22 @@ distinction is clear. As an example:
 
 `const myComponent = MyComponent`
 
+## Documentation
+
+Components will be documented with
+[JSDoc](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
+conventions. This should be placed at the top of the `index.js` file.
+
+Example:
+
+```
+/**
+ * A button that displays an alert with a greeting when clicked.
+ * @param {string} name - The name to be displayed.
+ * @returns {JSX.Element} A React component rendering the greeting.
+ */
+```
+
 ## Linting:
 
 Most style issues can be handled with the proper linting extensions in VS Code.
