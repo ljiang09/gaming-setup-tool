@@ -1,3 +1,7 @@
+/**
+ * A page to display the current existing database of setup hardware images.
+ * @returns {JSX.Element} A React component rendering the image database.
+ */
 const ImageDatabase = () => {
   return (
     <div>

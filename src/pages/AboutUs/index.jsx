@@ -1,5 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 
+/**
+ * A page detailing the creators of the app.
+ * @returns {JSX.Element} A React component rendering the About Us content.
+ */
 const AboutUs = () => {
   return (
     <Grid container style={{ marginTop: 30 }}>

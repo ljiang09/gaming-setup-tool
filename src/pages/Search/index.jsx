@@ -1,6 +1,10 @@
 import { React, useEffect, useState } from "react";
 import { Button, Box } from "@mui/material";
 
+/**
+ * A page for users to search for items in the database.
+ * @returns {JSX.Element} A React component rendering the search input field.
+ */
 const Search = () => {
   const [imgFile, setImgFile] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);

@@ -3,6 +3,10 @@ import { Tabs, Tab, Typography } from "@mui/material";
 import { AboutUs, ImageDatabase, Search } from "./pages";
 import "./App.css";
 
+/**
+ * The root page content.
+ * @returns {JSX.Element} A React component rendering the website.
+ */
 function App() {
   const [tabValue, setTabValue] = useState(0);
 
