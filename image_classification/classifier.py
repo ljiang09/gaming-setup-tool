@@ -1,7 +1,13 @@
+# https://www.youtube.com/watch?v=UuNGmhLpbCI
+
 import os
 from skimage.io import imread
 from skimage.transform import resize
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
+from sklearn.preprocessing import LabelEncoder
 
 
 # prepare data
@@ -24,8 +30,19 @@ for category_idx, category in enumerate(categories):
 data = np.asarray(data, dtype=object)
 labels = np.asarray(labels, dtype=object)
 
+label_encoder = LabelEncoder()
+labels_encoded = label_encoder.fit_transform(labels)
+
 # train/test split
+x_train, x_test, y_train, y_test = train_test_split(data, labels_encoded, test_size=0.2, shuffle=True, stratify=labels)
 
 # train classifier
+classifier = SVC()
+parameters = [{'gamma': [0.01, 0.001, 0.0001], 'C': [1, 10, 100, 1000]}]
+
+grid_search = GridSearchCV(classifier, parameters)
+
+grid_search.fit(x_train, y_train)
 
 # test performance
+
