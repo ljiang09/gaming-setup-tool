@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
 
 
 # prepare data
@@ -45,4 +46,12 @@ grid_search = GridSearchCV(classifier, parameters)
 grid_search.fit(x_train, y_train)
 
 # test performance
+best_estimator = grid_search.best_estimator_
+y_prediction = best_estimator.predict(x_test)
 
+print("*****y_prediction", y_prediction)
+print("*****y_test", y_test)
+
+score = accuracy_score(y_prediction, y_test)
+
+print("*****", score * 100, '% of samples were correctly classified')
