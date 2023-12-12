@@ -26,6 +26,28 @@ const Search = () => {
     }
   }, [imgFile]);
 
+  const makeApiCall = async () => {
+    // TODO: replace these consts as needed
+    const apiUrl = "http://127.0.0.1:5000/hello";
+    const data = { name: "Lily" };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      window.alert(result.message);
+      // console.log(result.message);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <Button variant="outlined" component="label">
@@ -46,6 +68,7 @@ const Search = () => {
           />
         )}
       </Box>
+      <Button onClick={makeApiCall}>erm</Button>
     </>
   );
 };
