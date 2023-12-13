@@ -8,7 +8,6 @@ from skimage.transform import resize
 
 # load stored model and encoder
 loaded_model = joblib.load('image_classification/svc_model.pkl')
-label_encoder = joblib.load('image_classification/label_encoder.pkl')
 
 categories = ["keyboard", "mouse"]
 
