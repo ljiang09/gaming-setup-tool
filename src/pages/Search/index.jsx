@@ -26,9 +26,9 @@ const Search = () => {
     }
   }, [imgFile]);
 
-  const makeApiCall = async () => {
+  const classifyImage = async () => {
     // TODO: replace these consts as needed
-    const apiUrl = "http://127.0.0.1:5000/hello";
+    const apiUrl = "http://127.0.0.1:5000/classifyImage";
     const data = { name: "Lily" };
 
     try {
@@ -41,9 +41,9 @@ const Search = () => {
       });
 
       const result = await response.json();
-      window.alert(result.message);
-      // console.log(result.message);
+      window.alert(result.result);
     } catch (error) {
+      window.alert(error);
       console.error("Error:", error);
     }
   };
@@ -68,7 +68,7 @@ const Search = () => {
           />
         )}
       </Box>
-      <Button onClick={makeApiCall}>erm</Button>
+      <Button onClick={classifyImage}>erm</Button>
     </>
   );
 };
