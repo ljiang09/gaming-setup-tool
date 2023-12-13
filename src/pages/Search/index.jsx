@@ -85,8 +85,15 @@ const Search = () => {
               aspectRatio: 1,
               background: "gray",
               margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              fontSize: 24,
             }}
-          />
+          >
+            preview image here
+          </div>
         )}
       </Box>
       <Button variant="outlined" disabled={!imgPreview} onClick={classifyImage}>
