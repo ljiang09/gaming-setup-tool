@@ -34,9 +34,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in a browser; the
 `sudo apt install npm` \
 `sudo npm -g install create-react-app` \
 `pip install -U scikit-learn` \
-`pip install scikit-image`
+`pip install scikit-image` \
 NVidia Drivers, CUDA, cuDNN \
 `pip install tensorflow` \
 `pip install opencv-python` \
 `pip install matplotlib` \
-`pip install numpy` \
+`pip install numpy`
