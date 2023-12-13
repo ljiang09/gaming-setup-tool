@@ -22,6 +22,8 @@ for category_idx, category in enumerate(categories):
     for file in os.listdir(os.path.join(input_dir, category)):
         if file == ".DS_Store":
             continue
+        # if (file[len(file) - 3:] == "jpg"):
+        # if (file[len(file) - 4:] == "jpeg"):
         img_path = os.path.join(input_dir, category, file)
         img = imread(img_path)
         img = resize(img, (50, 50))
@@ -38,7 +40,7 @@ labels_encoded = label_encoder.fit_transform(labels)
 x_train, x_test, y_train, y_test = train_test_split(data, labels_encoded, test_size=0.2, shuffle=True, stratify=labels)
 
 # train classifier
-classifier = SVC()
+classifier = SVC()  # change algo as desired
 parameters = [{'gamma': [0.01, 0.001, 0.0001], 'C': [1, 10, 100, 1000]}]
 
 grid_search = GridSearchCV(classifier, parameters)
