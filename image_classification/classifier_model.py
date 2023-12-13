@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix
 import joblib
 
 
@@ -50,15 +50,18 @@ grid_search.fit(x_train, y_train)
 
 best_estimator = grid_search.best_estimator_
 
-joblib.dump(best_estimator, 'image_classification/svc_model.pkl')  # save the trained model
+joblib.dump(best_estimator, 'svc_model.pkl')  # save the trained model
 
 # test performance
 y_prediction = best_estimator.predict(x_test)
 
-print("*****y_prediction", y_prediction)
-print("*****y_test", y_test)
+# metrics
+accuracy = accuracy_score(y_prediction, y_test)
+f1 = f1_score(y_test, y_prediction, average='binary')
+precision = precision_score(y_test, y_prediction)
+recall = recall_score(y_prediction, y_test)
+cm = confusion_matrix(y_prediction, y_test)
 
-score = accuracy_score(y_prediction, y_test)
-
-print("*****", score * 100, '% of samples were correctly classified')
+print("*****", accuracy, f1, precision, recall)
+print("*****", cm)
 
