@@ -29,7 +29,7 @@ const Search = () => {
   const classifyImage = async () => {
     // TODO: replace these consts as needed
     const apiUrl = "http://127.0.0.1:5000/classifyImage";
-    const data = { name: "Lily" };
+    const data = { imgData: imgPreview };
 
     try {
       const response = await fetch(apiUrl, {
