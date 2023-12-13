@@ -59,16 +59,39 @@ const Search = () => {
           onChange={handleFileChange}
         />
       </Button>
-      <Box width={200} style={{ margin: "auto", marginTop: "20px" }}>
-        {imgPreview && (
+      <Box
+        height={300}
+        style={{
+          margin: "auto",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        {imgPreview ? (
           <img
             src={imgPreview}
             alt="preview"
-            style={{ width: "100%", height: "100%" }}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              width: "auto",
+              height: "auto",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              height: "100%",
+              aspectRatio: 1,
+              background: "gray",
+              margin: "auto",
+            }}
           />
         )}
       </Box>
-      <Button onClick={classifyImage}>erm</Button>
+      <Button variant="outlined" disabled={!imgPreview} onClick={classifyImage}>
+        Predict
+      </Button>
     </>
   );
 };
