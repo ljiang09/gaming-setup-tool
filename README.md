@@ -38,4 +38,5 @@ can make API calls
 `sudo apt install npm` \
 `sudo npm -g install create-react-app` \
 `pip install Flask-CORS` \
-`pip install Flask`
+`pip install Flask` \
+`pip install Pillow`
