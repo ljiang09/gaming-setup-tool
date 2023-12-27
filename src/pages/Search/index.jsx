@@ -26,6 +26,28 @@ const Search = () => {
     }
   }, [imgFile]);
 
+  const classifyImage = async () => {
+    // TODO: replace these consts as needed
+    const apiUrl = "http://127.0.0.1:5000/classifyImage";
+    const data = { imgData: imgPreview };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      window.alert(result.result);
+    } catch (error) {
+      window.alert(error);
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <Button variant="outlined" component="label">
@@ -37,15 +59,46 @@ const Search = () => {
           onChange={handleFileChange}
         />
       </Button>
-      <Box width={200} style={{ margin: "auto", marginTop: "20px" }}>
-        {imgPreview && (
+      <Box
+        height={300}
+        style={{
+          margin: "auto",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        {imgPreview ? (
           <img
             src={imgPreview}
             alt="preview"
-            style={{ width: "100%", height: "100%" }}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              width: "auto",
+              height: "auto",
+            }}
           />
+        ) : (
+          <div
+            style={{
+              height: "100%",
+              aspectRatio: 1,
+              background: "gray",
+              margin: "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              fontSize: 24,
+            }}
+          >
+            preview image here
+          </div>
         )}
       </Box>
+      <Button variant="outlined" disabled={!imgPreview} onClick={classifyImage}>
+        Predict
+      </Button>
     </>
   );
 };
