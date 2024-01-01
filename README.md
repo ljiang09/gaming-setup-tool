@@ -31,8 +31,8 @@ In the project directory, you can run:
 Open [http://localhost:3000](http://localhost:3000) to view it in a browser; the
 page will reload on changes.
 
-`python image_classifier/app.py` - Hosts a Flask app locally so the React app
-can make API calls
+`cd` into `image_classification`, then run `python app.py` - Hosts a Flask app
+locally so the React app can make API calls
 
 **Installation Prerequisites** \
 `sudo apt install npm` \
