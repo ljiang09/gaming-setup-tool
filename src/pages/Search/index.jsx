@@ -142,42 +142,24 @@ const Search = () => {
       </section>
 
       {color && (
-        <section
+        <div
           style={{
             display: "flex",
-            gap: "20px",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            margin: "20px",
+            backgroundColor: `rgba(${color})`,
+            width: "200px",
+            margin: "20px auto",
           }}
         >
-          <div
-            style={{
-              width: "200px",
-              height: "100px",
-              backgroundColor: `rgba(${color})`,
-              color: "white",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <p style={{ color: "white" }}>
             {color[0]}, {color[1]}, {color[2]}
-          </div>
-          <div
-            style={{
-              width: "200px",
-              height: "100px",
-              backgroundColor: `rgba(${color})`,
-              color: "black",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          </p>
+          <p style={{ color: "black" }}>
             {color[0]}, {color[1]}, {color[2]}
-          </div>
-        </section>
+          </p>
+        </div>
       )}
     </>
   );
