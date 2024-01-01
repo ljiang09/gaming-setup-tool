@@ -1,11 +1,13 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from new_img_classifier import classify_image
 import base64
 import numpy as np
 from PIL import Image
 import io
+
+from new_img_classifier import classify_image
+from color_identifier import get_dominant_color
 
 
 app = Flask(__name__)
@@ -20,6 +22,17 @@ def classifyImage():
     img_data_bytes = base64.b64decode(img_data_base64.split(',')[1])
     img_np_array = np.array(Image.open(io.BytesIO(img_data_bytes)))
     result = classify_image(img_np_array)
+    response = {'result': result}
+    return jsonify(response)
+
+@app.route('/getColors', methods=['POST'])
+def getColors():
+    data = request.get_json()
+    img_data_base64 = data.get('imgData', '')
+    img_data_bytes = base64.b64decode(img_data_base64.split(',')[1])
+    img_np_array = np.array(Image.open(io.BytesIO(img_data_bytes)))
+    image = Image.fromarray(img_np_array)
+    result = get_dominant_color(image)
     response = {'result': result}
     return jsonify(response)
 
