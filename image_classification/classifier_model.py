@@ -1,4 +1,7 @@
-# https://www.youtube.com/watch?v=UuNGmhLpbCI
+'''
+Run this file to create and save a classifier between keyboards and mice
+https://www.youtube.com/watch?v=UuNGmhLpbCI
+'''
 
 import os
 from skimage.io import imread

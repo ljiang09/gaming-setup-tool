@@ -15,14 +15,18 @@ Model: https://www.youtube.com/watch?v=UuNGmhLpbCI
 2. Run `image_classification/classifier_model.py` to save the model locally
 3. Test a new image on the model using
    `image_classification/new_img_classifier.py`. Save the new image locally (jpg
-   or jpeg) and change `new_image_path` to be the path of your new image
+   or jpeg), change `new_image_path` to be the path of your new image, then run
+   the file
 
 ## Next steps:
 
-- Make color classifying algorithm - extract main colors from the uploaded image
-- Make recommendation algorithm
+- Refine aforementioned algo to not take in background colors
+- Make recommendation algorithm (requires gathering data for keybs and mice we
+  want to recommend)
 - Make algo to identify specific keyboards or mice in the photo, and recommend
   those in the algorithm
+- have user input to check if the model was right, and if so, add it to the
+  current databases
 
 With all of these, we can try to provide the user with a list that includes the
 exact keyboard/mouse shown in the photo (if it exists), and then some actual

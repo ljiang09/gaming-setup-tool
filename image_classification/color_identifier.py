@@ -1,22 +1,31 @@
+'''
+Functions to identify the dominant color(s) of an image.
+'''
+
 from PIL import Image
 import numpy as np
 import scipy
 import scipy.misc
 import scipy.cluster
+import colorspacious as cs
 
 
 # TODO: the goal is to be identify 1-5 main colors
 # only return a color if 20% of the image has it?
 # need to make sure the colors aren't super similar though.. a filtering mechanism perslaps
 
-# Currently, we allow image = None for easy testing of the function
-from PIL import Image
-import colorspacious as cs
 
-
-# This is the old function that returns the singlar most dominant color
-# pil_img should be a PIL Image object
 def get_dominant_color(pil_img):
+    '''
+    Get the singular most dominant color for an image. This is the
+    legacy algorithm.
+
+    Args:
+    pil_img: a PIL Image object
+
+    Returns:
+    A tuple of 3 integers representing an RGB color
+    '''
     img = pil_img.copy()
     img = img.convert("RGBA")
     img = img.resize((1, 1), resample=0)
@@ -33,6 +42,15 @@ THRESHOLD_DISTANCE = 150
 # new algorithm that can identify multiple dominant colors
 # only problem is that it likes to focus on the background colors
 def identify_colors(image=None):
+    '''
+    Get the 6 most dominant colors for an image.
+
+    Args:
+    image: a PIL Image object
+
+    Returns:
+    An array of 6 colors, each represented by a tuple of 3 integers
+    '''
     if image is None:
         filename = "./unknown1.jpeg"
         image = Image.open(filename)
