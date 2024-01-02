@@ -3,11 +3,10 @@ Functions to identify the dominant color(s) of an image.
 '''
 
 from PIL import Image
-import numpy as np
-import scipy
 import scipy.misc
 import scipy.cluster
-import colorspacious as cs
+import cv2
+from sklearn.cluster import KMeans
 
 
 # TODO: the goal is to be identify 1-5 main colors
@@ -82,3 +81,34 @@ def identify_colors(image=None):
 
     return colors
 
+
+# this is super slow and tbh I think it doesn't work as well as the custom algo
+def extract_colors(image_path, num_colors):
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    pixels = image.reshape((-1, 3))
+
+    kmeans = KMeans(n_clusters=num_colors)
+    kmeans.fit(pixels)
+
+    # Get the dominant colors
+    colors = kmeans.cluster_centers_.astype(int)
+
+    return colors
+
+
+# pil_img = Image.open("./unknown1.jpeg")
+# print(get_dominant_color(pil_img))
+
+# This is super fast!
+print(identify_colors())
+# [(255, 255, 255), (126, 139, 145), (66, 84, 94), (26, 215, 234), (202, 66, 68), (199, 200, 202)]
+
+# This is super slow!
+# print(extract_colors("./unknown1.jpeg", 6))
+# [[253 253 253]
+#  [ 88 105 115]
+#  [ 29 197 225]
+#  [125 141 148]
+#  [224 230 233]
+#  [ 53  74  87]]

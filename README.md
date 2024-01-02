@@ -39,4 +39,5 @@ locally so the React app can make API calls
 `sudo npm -g install create-react-app` \
 `pip install Flask-CORS` \
 `pip install Flask` \
-`pip install Pillow`
+`pip install Pillow` \
+`pip install opencv-python`
