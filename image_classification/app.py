@@ -7,7 +7,7 @@ from PIL import Image
 import io
 
 from new_img_classifier import classify_image
-from color_identifier import get_dominant_color
+from color_identifier import identify_colors
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def getColors():
     img_data_bytes = base64.b64decode(img_data_base64.split(',')[1])
     img_np_array = np.array(Image.open(io.BytesIO(img_data_bytes)))
     image = Image.fromarray(img_np_array)
-    result = get_dominant_color(image)
+    result = identify_colors(image)
     response = {'result': result}
     return jsonify(response)
 

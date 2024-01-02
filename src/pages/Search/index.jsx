@@ -8,7 +8,7 @@ import { Button, Box } from "@mui/material";
 const Search = () => {
   const [imgFile, setImgFile] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
-  const [color, setColor] = useState(null);
+  const [colors, setColors] = useState(null);
 
   const handleFileChange = (event) => {
     setImgFile(event.target.files[0]);
@@ -64,7 +64,7 @@ const Search = () => {
       });
 
       const result = await response.json();
-      setColor(result.result);
+      setColors(result.result);
       // window.alert(result.result);
     } catch (error) {
       window.alert(error);
@@ -141,25 +141,45 @@ const Search = () => {
         </Button>
       </section>
 
-      {color && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: `rgba(${color})`,
-            width: "200px",
-            margin: "20px auto",
-          }}
-        >
-          <p style={{ color: "white" }}>
-            {color[0]}, {color[1]}, {color[2]}
-          </p>
-          <p style={{ color: "black" }}>
-            {color[0]}, {color[1]}, {color[2]}
-          </p>
-        </div>
+      {colors && (
+        <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: `rgba(${colors[0]})`,
+              width: "200px",
+              margin: "20px auto",
+            }}
+          >
+            <p style={{ color: "white" }}>
+              {colors[0][0]}, {colors[0][1]}, {colors[0][2]}
+            </p>
+            <p style={{ color: "black" }}>
+              {colors[0][0]}, {colors[0][1]}, {colors[0][2]}
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: `rgba(${colors[1]})`,
+              width: "200px",
+              margin: "20px auto",
+            }}
+          >
+            <p style={{ color: "white" }}>
+              {colors[1][0]}, {colors[1][1]}, {colors[1][2]}
+            </p>
+            <p style={{ color: "black" }}>
+              {colors[1][0]}, {colors[1][1]}, {colors[1][2]}
+            </p>
+          </div>
+        </>
       )}
     </>
   );

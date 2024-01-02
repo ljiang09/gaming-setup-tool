@@ -21,7 +21,8 @@ Model: https://www.youtube.com/watch?v=UuNGmhLpbCI
 
 - Make color classifying algorithm - extract main colors from the uploaded image
 - Make recommendation algorithm
-- Make algo to identify images in the
+- Make algo to identify specific keyboards or mice in the photo, and recommend
+  those in the algorithm
 
 With all of these, we can try to provide the user with a list that includes the
 exact keyboard/mouse shown in the photo (if it exists), and then some actual
