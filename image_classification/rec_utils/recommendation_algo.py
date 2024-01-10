@@ -55,11 +55,12 @@ def recommend_similar_images(target_colors, database, num_imgs=3):
                     distances[dist] = [i]
     
     distance_vals = list(distances.keys())
+    distance_vals.sort()  # sort closest distance to furthest
 
     # TODO: refactor this to use numpy
     # Also this mayyyy be wrong but i cannot think rn
     x = [0] * len(database)
-    for i in range(num_imgs):
+    for i in range(num_imgs):  # iterate through closest colors
         for index in distances[distance_vals[i]]:
             x[index] += 1
 
@@ -73,7 +74,6 @@ def recommend_similar_images(target_colors, database, num_imgs=3):
             break
 
     return return_vals
-
 
 
 def rec_by_colors(colors):
